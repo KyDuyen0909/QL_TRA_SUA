@@ -1,0 +1,37 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="QL_QUAN_TRA_SUA.MasterPage" %>
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head runat="server">
+        <title></title>
+        <link href="Layout/Style.css" rel="stylesheet" type="text/css" />
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+    </head>
+  <body>
+     <div id="wrapper">
+    <form runat="server">
+        <div id="Banner">  </div>
+        <div id="MainMenu">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolderMainMenu" runat="server" />
+        </div>
+        <div id="Contens">
+            <div id="SubMenu">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolderSubMenu" runat="server" />
+            </div>
+            <div id="Content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolderContent" runat="server" />
+            </div>
+          <div id="HotNews">
+             <asp:ContentPlaceHolder ID="ContentPlaceHolderHotNews" runat="server" />
+         </div>
+        </div>
+        <div id="Bottom">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolderBottom" runat="server" />
+        </div>
+    </form>
+    </div>
+</body>
+    </html>
+

@@ -67,12 +67,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Defult.aspx" />
+    <Content Include="LoginList.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Defult.aspx.cs">
+      <DependentUpon>Defult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Defult.aspx.designer.cs">
+      <DependentUpon>Defult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginList.aspx.cs">
+      <DependentUpon>LoginList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginList.aspx.designer.cs">
+      <DependentUpon>LoginList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MasterPage.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
