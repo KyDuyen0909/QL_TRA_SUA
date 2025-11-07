@@ -24,13 +24,13 @@ namespace QL_QUAN_TRA_SUA
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// DropDownList1 control.
+        /// ddlPhanQuyen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPhanQuyen;
 
         /// <summary>
         /// txtht control.
@@ -87,12 +87,12 @@ namespace QL_QUAN_TRA_SUA
         protected global::System.Web.UI.WebControls.Label lblMessage;
 
         /// <summary>
-        /// GridView1 control.
+        /// GridViewAccounts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView GridViewAccounts;
     }
 }

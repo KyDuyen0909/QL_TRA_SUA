@@ -27,7 +27,7 @@
             <h2 style="text-align: center;"> QUẢN LÝ TÀI KHOẢN</h2>
 
             <h3 style="text-align: left;">👤 Account List</h3>
-             <asp:DropDownList ID="DropDownList1" runat="server" width="246px" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" style="margin-top: 23px" Height="82px">
+             <asp:DropDownList ID="ddlPhanQuyen" runat="server" width="246px" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" style="margin-top: 20px" Height="82px">
                </asp:DropDownList>
                                      <br />
                                      <br />
@@ -42,14 +42,14 @@
              <b><asp:Label ID="lblMessage" runat="server" Text="" ></asp:Label>
             <br />
             </b>
-            <h3 style="text-align: left;"><asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="So_dien_thoai" OnRowDeleting="GridView1_RowDeleting" Width="1237px" OnRowDataBound="GridView1_RowDataBound">
+            <h3 style="text-align: left;"><asp:GridView ID="GridViewAccounts" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="So_dien_thoai" OnRowDeleting="GridView1_RowDeleting" Width="1237px" OnRowDataBound="GridView1_RowDataBound">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:BoundField DataField="  Ho_va_ten" HeaderText="Họ &amp; Tên">
+                    <asp:BoundField DataField="Ho_va_ten" HeaderText="Họ và Tên">
                     <FooterStyle Width="80px" />
                     <HeaderStyle HorizontalAlign="Center" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="So_dien_thoai " HeaderText="Số Điện Thoại">
+                    <asp:BoundField DataField="So_dien_thoai" HeaderText="Số Điện Thoại">
                     <FooterStyle Width="80px" />
                     <HeaderStyle HorizontalAlign="Center" />
                     </asp:BoundField>
@@ -63,7 +63,7 @@
                     <HeaderStyle HorizontalAlign="Center" />
                    
                     </asp:BoundField>
-                    <asp:HyperLinkField DataNavigateUrlFields="Ho_và_ten" Text="Sửa" />
+                    <asp:HyperLinkField DataNavigateUrlFields="So_dien_thoai" Text="Sửa" />
                     <asp:CommandField DeleteText="Xóa" ShowDeleteButton="True" />
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />
