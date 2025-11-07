@@ -95,7 +95,36 @@ namespace QL_QUAN_TRA_SUA
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            try
+            {
+                // Lấy số điện thoại từ khóa chính của hàng được chọn
+                string soDienThoai = e.Keys["So_dien_thoai"].ToString();
 
+                // Khởi tạo kết nối đến DB
+                Cua_Hang_Tra_SuaDataContext context = new Cua_Hang_Tra_SuaDataContext();
+
+                // Tìm tài khoản cần xóa theo số điện thoại
+                Tai_Khoan taiKhoan = context.Tai_Khoans.SingleOrDefault(tk => tk.So_dien_thoai == soDienThoai);
+
+                if (taiKhoan != null)
+                {
+                    // Xóa và lưu thay đổi
+                    context.Tai_Khoans.DeleteOnSubmit(taiKhoan);
+                    context.SubmitChanges();
+
+                    // Tải lại danh sách sau khi xóa
+                    LoadDataAccount();
+                    lblMessage.Text = "✅ Xóa tài khoản thành công.";
+                }
+                else
+                {
+                    lblMessage.Text = "⚠️ Không tìm thấy tài khoản cần xóa.";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblMessage.Text = "❌ Lỗi khi xóa tài khoản: " + ex.Message;
+            }
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
@@ -112,6 +141,66 @@ namespace QL_QUAN_TRA_SUA
         protected void butAdd_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void GridViewAccounts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void butDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cua_Hang_Tra_SuaDataContext context = new Cua_Hang_Tra_SuaDataContext();
+
+                for (int i = 0; i < GridViewAccounts.Rows.Count; i++)
+                {
+                    // Tìm checkbox trong cột thứ 5 (index = 5)
+                    // (Lưu ý: Index 5 là cột thứ 6)
+                    CheckBox chk = (CheckBox)GridViewAccounts.Rows[i].Cells[5].FindControl("ckhDelete");
+
+                    if (chk != null && chk.Checked)
+                    {
+                        // Lỗi đã được sửa ở đây: Thay GridView1 bằng GridViewAccounts
+                        string soDienThoai = GridViewAccounts.Rows[i].Cells[0].Text.Trim();
+
+                        // Tìm tài khoản theo số điện thoại
+                        Tai_Khoan tk = context.Tai_Khoans.SingleOrDefault(t => t.So_dien_thoai == soDienThoai);
+
+                        if (tk != null)
+                        {
+                            context.Tai_Khoans.DeleteOnSubmit(tk);
+                        }
+                    }
+                }
+
+                // Lưu thay đổi
+                context.SubmitChanges();
+
+                // Tải lại danh sách
+                LoadDataAccount();
+
+                lblMessage.Text = "✅ Đã xóa các tài khoản được chọn.";
+            }
+            catch (Exception ex)
+            {
+                lblMessage.Text = "❌ Lỗi khi xóa: " + ex.Message;
+            }
+        }
+
+        // Phương thức xử lý sự kiện cho nút "Đăng Ký Tài Khoản Mới"
+        protected void btnRegisterAccount_Click(object sender, EventArgs e)
+        {
+            // Chuyển hướng đến trang Đăng ký (RegisterAccount.aspx)
+            Response.Redirect("RegisterAccount.aspx");
+        }
+
+        // Phương thức xử lý sự kiện cho nút "Đăng Nhập Tài Khoản"
+        protected void btnLoginPage_Click(object sender, EventArgs e)
+        {
+            // Chuyển hướng đến trang Đăng nhập (Login.aspx)
+            Response.Redirect("Login.aspx");
         }
     }
 }

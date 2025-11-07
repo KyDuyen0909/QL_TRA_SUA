@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QL_QUAN_TRA_SUA
+namespace QL_TRA_SUA
 {
 
 
-    public partial class LoginList
+    public partial class RegisterAccount
     {
 
         /// <summary>
@@ -24,76 +24,94 @@ namespace QL_QUAN_TRA_SUA
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// btnRegisterAccount control.
+        /// txtHoTen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegisterAccount;
+        protected global::System.Web.UI.WebControls.TextBox txtHoTen;
 
         /// <summary>
-        /// btnLoginPage control.
+        /// ReqHoTen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLoginPage;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqHoTen;
 
         /// <summary>
-        /// ddlPhanQuyen control.
+        /// txtSoDienThoai control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPhanQuyen;
+        protected global::System.Web.UI.WebControls.TextBox txtSoDienThoai;
 
         /// <summary>
-        /// txtht control.
+        /// ReqSDT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtht;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqSDT;
 
         /// <summary>
-        /// txtsdt control.
+        /// txtDiaChi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtsdt;
+        protected global::System.Web.UI.WebControls.TextBox txtDiaChi;
 
         /// <summary>
-        /// txtdchi control.
+        /// txtMatKhau control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtdchi;
+        protected global::System.Web.UI.WebControls.TextBox txtMatKhau;
 
         /// <summary>
-        /// txtmk control.
+        /// ReqMatKhau control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtmk;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqMatKhau;
 
         /// <summary>
-        /// butAdd control.
+        /// txtXacNhanMatKhau control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button butAdd;
+        protected global::System.Web.UI.WebControls.TextBox txtXacNhanMatKhau;
+
+        /// <summary>
+        /// CompareMatKhau control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareMatKhau;
+
+        /// <summary>
+        /// btnDangKy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDangKy;
 
         /// <summary>
         /// lblMessage control.
@@ -103,14 +121,5 @@ namespace QL_QUAN_TRA_SUA
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMessage;
-
-        /// <summary>
-        /// GridViewAccounts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewAccounts;
     }
 }

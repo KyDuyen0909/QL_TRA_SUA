@@ -3,6 +3,8 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderContent" Runat="Server">
+    <asp:Label ID="lblWelcomeMessage" runat="server" Font-Bold="true" ForeColor="Green"></asp:Label>
+    <br />
     Nội dung hiển thị tại Content
 </asp:Content>
 
