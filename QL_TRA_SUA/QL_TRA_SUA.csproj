@@ -69,11 +69,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Defult.aspx" />
+    <Content Include="image\camsa.jpg" />
+    <Content Include="image\chanhmatong.jpg" />
+    <Content Include="image\dautay.jpg" />
+    <Content Include="image\khoaimon.jpg" />
+    <Content Include="image\mousse.jpg" />
+    <Content Include="image\sôcola.jpg" />
+    <Content Include="image\tiramisu.jpg" />
+    <Content Include="image\ts.jpg" />
+    <Content Include="image\tx.jpg" />
+    <Content Include="image\vai.jpg" />
     <Content Include="layout\Style.css" />
     <Content Include="Login.aspx" />
     <Content Include="LoginList.aspx" />
     <Content Include="PageList.aspx" />
     <Content Include="RegisterAccount.aspx" />
+    <Content Include="San_pham.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +131,13 @@
     <Compile Include="RegisterAccount.aspx.designer.cs">
       <DependentUpon>RegisterAccount.aspx</DependentUpon>
     </Compile>
+    <Compile Include="San_pham.aspx.cs">
+      <DependentUpon>San_pham.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="San_pham.aspx.designer.cs">
+      <DependentUpon>San_pham.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage.Master" />
@@ -137,6 +155,7 @@
       <Name>Cua_Hang_Tra_Sua</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

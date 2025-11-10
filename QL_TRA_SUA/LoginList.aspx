@@ -87,7 +87,7 @@
                         <FooterStyle Width="80px" />
                         <HeaderStyle HorizontalAlign="Center" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="So_dien_thoai" HeaderText="Số Điện Thoại">
+                        <asp:BoundField DataField="So_dien_thoai" HeaderText="Số Điện Thoại" ReadOnly="True">
                         <FooterStyle Width="80px" />
                         <HeaderStyle HorizontalAlign="Center" />
                         </asp:BoundField>
@@ -110,6 +110,7 @@
                             </ItemTemplate>
                             <FooterStyle HorizontalAlign="Center" Width="80px" />
                         </asp:TemplateField>
+                        <asp:CommandField CancelText="Hủy" EditText="Sửa" ShowEditButton="True" UpdateText="Lưu" />
                     </Columns>
                     <EditRowStyle BackColor="#2461BF" />
                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

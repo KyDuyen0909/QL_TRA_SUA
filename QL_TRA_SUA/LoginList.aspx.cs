@@ -14,9 +14,15 @@ namespace QL_QUAN_TRA_SUA
         {
             if (!IsPostBack)
             {
+                // Chỉ nạp dữ liệu DropDownList lần đầu
                 LoadDataDropDownList();
+                // Nạp dữ liệu GridView lần đầu
+                LoadDataAccount();
             }
-            LoadDataAccount();
+            // BỎ nạp LoadDataAccount() ở đây. Việc này sẽ được xử lý trong các sự kiện PostBack khác. 
+
+            // Nếu bạn muốn nạp lại GridView khi ddlPhanQuyen thay đổi, hãy làm trong sự kiện của nó:
+            // Protected void DropDownList1_SelectedIndexChanged(...) { LoadDataAccount(); }
 
         }
         /// <summary>
@@ -129,7 +135,8 @@ namespace QL_QUAN_TRA_SUA
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            // Khi DropDownList thay đổi, ta nạp lại GridView theo lựa chọn mới
+            LoadDataAccount();
         }
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -153,39 +160,53 @@ namespace QL_QUAN_TRA_SUA
             try
             {
                 Cua_Hang_Tra_SuaDataContext context = new Cua_Hang_Tra_SuaDataContext();
+                int soTaiKhoanDaXoa = 0;
 
                 for (int i = 0; i < GridViewAccounts.Rows.Count; i++)
                 {
-                    // Tìm checkbox trong cột thứ 5 (index = 5)
-                    // (Lưu ý: Index 5 là cột thứ 6)
-                    CheckBox chk = (CheckBox)GridViewAccounts.Rows[i].Cells[5].FindControl("ckhDelete");
+                    // 1. Tìm CheckBox. Tên ID của CheckBox trong ItemTemplate là "ckhDelete".
+                    // FindControl phải được gọi trên đối tượng GridViewRow hoặc TemplateField
+                    // Nếu CheckBox nằm trong TemplateField cuối cùng, ta tìm trực tiếp trên Row.
+                    CheckBox chk = (CheckBox)GridViewAccounts.Rows[i].FindControl("ckhDelete");
 
                     if (chk != null && chk.Checked)
                     {
-                        // Lỗi đã được sửa ở đây: Thay GridView1 bằng GridViewAccounts
-                        string soDienThoai = GridViewAccounts.Rows[i].Cells[0].Text.Trim();
-
-                        // Tìm tài khoản theo số điện thoại
-                        Tai_Khoan tk = context.Tai_Khoans.SingleOrDefault(t => t.So_dien_thoai == soDienThoai);
-
-                        if (tk != null)
+                        // 2. Lấy khóa chính (So_dien_thoai) bằng DataKeys - CÁCH CHÍNH XÁC
+                        // Đảm bảo GridViewAccounts.DataKeyNames đã đặt là "So_dien_thoai" trong .aspx
+                        if (GridViewAccounts.DataKeys[i] != null && GridViewAccounts.DataKeys[i].Value != null)
                         {
-                            context.Tai_Khoans.DeleteOnSubmit(tk);
+                            string soDienThoai = GridViewAccounts.DataKeys[i].Value.ToString();
+
+                            // 3. Tìm và đánh dấu xóa tài khoản
+                            Tai_Khoan tk = context.Tai_Khoans.SingleOrDefault(t => t.So_dien_thoai == soDienThoai);
+
+                            if (tk != null)
+                            {
+                                context.Tai_Khoans.DeleteOnSubmit(tk);
+                                soTaiKhoanDaXoa++;
+                            }
                         }
                     }
                 }
 
-                // Lưu thay đổi
-                context.SubmitChanges();
+                // 4. Lưu thay đổi vào cơ sở dữ liệu
+                if (soTaiKhoanDaXoa > 0)
+                {
+                    context.SubmitChanges();
+                    lblMessage.Text = $"✅ Đã xóa thành công {soTaiKhoanDaXoa} tài khoản được chọn.";
+                }
+                else
+                {
+                    // Nếu không có tài khoản nào được chọn, không cần SubmitChanges
+                    lblMessage.Text = "⚠️ Vui lòng chọn ít nhất một tài khoản để xóa.";
+                }
 
-                // Tải lại danh sách
+                // 5. Tải lại danh sách
                 LoadDataAccount();
-
-                lblMessage.Text = "✅ Đã xóa các tài khoản được chọn.";
             }
             catch (Exception ex)
             {
-                lblMessage.Text = "❌ Lỗi khi xóa: " + ex.Message;
+                lblMessage.Text = "❌ Lỗi khi xóa hàng loạt: " + ex.Message;
             }
         }
 
