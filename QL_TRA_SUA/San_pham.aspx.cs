@@ -363,6 +363,8 @@ namespace QL_TRA_SUA
                     }
                 }
 
+
+
                 if (soSpDaChon > 0)
                 {
                     // Xóa tất cả các sản phẩm đã chọn
