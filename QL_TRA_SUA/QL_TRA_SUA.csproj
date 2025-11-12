@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bai_viet.aspx" />
     <Content Include="Defult.aspx" />
     <Content Include="image\camsa.jpg" />
     <Content Include="image\chanhmatong.jpg" />
@@ -88,6 +89,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bai_viet.aspx.cs">
+      <DependentUpon>Bai_viet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bai_viet.aspx.designer.cs">
+      <DependentUpon>Bai_viet.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Defult.aspx.cs">
       <DependentUpon>Defult.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
