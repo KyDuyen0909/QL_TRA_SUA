@@ -33,5 +33,16 @@ namespace Cua_Hang_Tra_Sua.Properties {
                 return ((string)(this["Cua_Hang_Tra_SuaConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ky_duyen\\SQLEXPRESS;Initial Catalog=Cua_Hang_Tra_Sua;Integrated Secur" +
+            "ity=True;Encrypt=True;TrustServerCertificate=True")]
+        public string Cua_Hang_Tra_SuaConnectionString1 {
+            get {
+                return ((string)(this["Cua_Hang_Tra_SuaConnectionString1"]));
+            }
+        }
     }
 }

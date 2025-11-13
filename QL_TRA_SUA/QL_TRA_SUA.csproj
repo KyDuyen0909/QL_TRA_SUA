@@ -70,6 +70,7 @@
   <ItemGroup>
     <Content Include="Bai_viet.aspx" />
     <Content Include="Defult.aspx" />
+    <Content Include="Gio_Hang.aspx" />
     <Content Include="image\camsa.jpg" />
     <Content Include="image\chanhmatong.jpg" />
     <Content Include="image\dautay.jpg" />
@@ -84,6 +85,7 @@
     <Content Include="Login.aspx" />
     <Content Include="LoginList.aspx" />
     <Content Include="PageList.aspx" />
+    <Content Include="QL_DONHANG.aspx" />
     <Content Include="RegisterAccount.aspx" />
     <Content Include="San_pham.aspx" />
     <Content Include="Web.config" />
@@ -102,6 +104,13 @@
     </Compile>
     <Compile Include="Defult.aspx.designer.cs">
       <DependentUpon>Defult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gio_Hang.aspx.cs">
+      <DependentUpon>Gio_Hang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gio_Hang.aspx.designer.cs">
+      <DependentUpon>Gio_Hang.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -132,6 +141,13 @@
       <DependentUpon>PageList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QL_DONHANG.aspx.cs">
+      <DependentUpon>QL_DONHANG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QL_DONHANG.aspx.designer.cs">
+      <DependentUpon>QL_DONHANG.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegisterAccount.aspx.cs">
       <DependentUpon>RegisterAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
