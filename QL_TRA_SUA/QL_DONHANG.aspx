@@ -1,13 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="QL_DONHANG.aspx.cs" Inherits="QL_TRA_SUA.QL_DONHANG" %>
 
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Quản Lý Đơn Hàng</title>
-    <!-- Tải Tailwind CSS để tạo giao diện hiện đại -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Thiết lập font Inter cho giao diện -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #f4f7f9; }
@@ -26,10 +23,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="max-w-7xl mx-auto p-6 lg:p-10 bg-white shadow-xl rounded-xl mt-8">
             <h1 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-3">Quản Lý Đơn Hàng Quán Trà Sữa</h1>
             
-            <!-- Vùng Chuyển Đổi Tab -->
             <div class="flex border-b border-gray-200 mb-6">
                 <asp:LinkButton ID="btnTabPending" runat="server" Text="Đơn Hàng Đang Chờ" CommandName="Pending" 
                     OnClick="Tab_Click" CssClass="tab-button px-6 py-3 text-lg font-medium text-blue-700 border-b-2 border-blue-700" />
@@ -40,26 +38,27 @@
             <asp:Panel ID="pnlPendingOrders" runat="server" Visible="true">
                 <h2 class="text-2xl font-semibold text-gray-700 mb-4">Đơn Hàng Đang Chờ Xử Lý</h2>
                 
-                <!-- Bộ lọc Đang Chờ -->
                 <div class="flex space-x-4 mb-6">
-                   <asp:DropDownList 
+                    
+                    <asp:DropDownList 
                         ID="ddlStatusPending" 
                         runat="server" 
                         AutoPostBack="True" 
-                        OnSelectedIndexChanged="Filter_Data"
-                        CssClass="form-control" >
-    
-                        <asp:ListItem Text="Đơn hàng đang chờ xử lý" Value="0"></asp:ListItem>
-                        <asp:ListItem Text="Đơn hàng đã hoàn thành" Value="1"></asp:ListItem>
-    
+                        OnSelectedIndexChanged="Filter_Pending_Click"
+                        CssClass="rounded-lg border border-gray-300 p-2 focus:ring-blue-500 focus:border-blue-500">
+                        
+                        <asp:ListItem Value="Tất cả Đơn Chờ" Text="Tất cả Đơn Chờ" Selected="True"></asp:ListItem>
+                        <asp:ListItem Value="Chờ xác nhận" Text="Chờ xác nhận"></asp:ListItem>
+                        <asp:ListItem Value="Đang giao" Text="Đang giao"></asp:ListItem>
+
                     </asp:DropDownList>
                     <asp:TextBox ID="txtSearchPending" runat="server" placeholder="Tìm theo SĐT, Tên khách..." 
                         CssClass="rounded-lg border border-gray-300 p-2 w-72 focus:ring-blue-500 focus:border-blue-500" />
-                    <asp:Button ID="btnSearchPending" runat="server" Text="Tìm kiếm" OnClick="Filter_Data" 
+                    
+                    <asp:Button ID="btnSearchPending" runat="server" Text="Tìm kiếm" OnClick="Filter_Pending_Click" 
                         CssClass="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-150" />
-                </div>
+                    </div>
 
-                <!-- GridView hiển thị Đơn hàng Đang chờ -->
                 <asp:GridView ID="gvPendingOrders" runat="server" AutoGenerateColumns="False" 
                     DataKeyNames="ID_DH" CssClass="gridview-style" 
                     OnRowCommand="gvOrders_RowCommand" OnRowDataBound="gvOrders_RowDataBound">
@@ -90,24 +89,24 @@
             <asp:Panel ID="pnlHistory" runat="server" Visible="false">
                 <h2 class="text-2xl font-semibold text-gray-700 mb-4">Lịch Sử Đơn Hàng (Đã Hoàn thành/Đã Hủy)</h2>
 
-                <!-- Bộ lọc Lịch Sử -->
                 <div class="flex space-x-4 mb-6">
-                    <asp:DropDownList ID="ddlStatusHistory" runat="server" AutoPostBack="True" OnSelectedIndexChanged="Filter_Data" 
+                    
+                    <asp:DropDownList ID="ddlStatusHistory" runat="server" AutoPostBack="True" OnSelectedIndexChanged="Filter_History_Click" 
                         CssClass="rounded-lg border border-gray-300 p-2 focus:ring-blue-500 focus:border-blue-500">
-                        <asp:ListItem Value="Hoàn thành" Text="Đã Hoàn thành" Selected="True"></asp:ListItem>
+                        <asp:ListItem Value="Tất Cả Lịch Sử" Text="Tất Cả Lịch Sử" Selected="True"></asp:ListItem>
+                        <asp:ListItem Value="Hoàn thành" Text="Đã Hoàn thành"></asp:ListItem>
                         <asp:ListItem Value="Đã hủy" Text="Đã Hủy"></asp:ListItem>
-                        <asp:ListItem Value="Tất cả" Text="Tất Cả Lịch Sử"></asp:ListItem>
                     </asp:DropDownList>
                     <asp:TextBox ID="txtSearchHistory" runat="server" placeholder="Tìm theo Mã ĐH, SĐT..." 
                         CssClass="rounded-lg border border-gray-300 p-2 w-72 focus:ring-blue-500 focus:border-blue-500" />
-                    <asp:Button ID="btnSearchHistory" runat="server" Text="Tìm kiếm" OnClick="Filter_Data" 
+                    
+                    <asp:Button ID="btnSearchHistory" runat="server" Text="Tìm kiếm" OnClick="Filter_History_Click" 
                         CssClass="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-150" />
-                </div>
+                    </div>
 
-                <!-- GridView hiển thị Lịch sử Đơn hàng -->
                 <asp:GridView ID="gvHistoryOrders" runat="server" AutoGenerateColumns="False" 
                     DataKeyNames="ID_DH" CssClass="gridview-style" 
-                    OnRowDataBound="gvOrders_RowDataBound">
+                    OnRowDataBound="gvOrders_RowDataBound" OnRowCommand="gvOrders_RowCommand">
                     <Columns>
                         <asp:BoundField DataField="ID_DH" HeaderText="Mã ĐH" ItemStyle-Width="80px" />
                         <asp:BoundField DataField="Thoi_gian_dat" HeaderText="Thời gian" DataFormatString="{0:dd/MM/yyyy HH:mm}" />
@@ -127,7 +126,6 @@
                 </asp:GridView>
             </asp:Panel>
 
-            <!-- Vùng Hiển thị Chi tiết Đơn hàng (Modal hoặc Panel) -->
             <asp:Panel ID="pnlDetailModal" runat="server" Visible="false" 
                 CssClass="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center z-50">
                 <div class="bg-white p-6 rounded-lg shadow-2xl w-full max-w-xl">
@@ -164,7 +162,6 @@
                 </div>
             </asp:Panel>
 
-            <!-- Label dùng để hiển thị thông báo chung -->
             <asp:Label ID="lblNotification" runat="server" CssClass="text-lg font-semibold mt-4 block" />
         </div>
     </form>
