@@ -385,6 +385,11 @@ namespace QL_TRA_SUA
             // Tải lại danh sách SẢN PHẨM
             LoadDataProducts();
         }
+
+        protected void GridViewProducts_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

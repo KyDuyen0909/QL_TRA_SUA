@@ -117,7 +117,7 @@
                 OnRowDeleting="GridViewProducts_RowDeleting"
                 OnRowEditing="GridViewProducts_RowEditing"
                 OnRowUpdating="GridViewProducts_RowUpdating"
-                OnRowCancelingEdit="GridViewProducts_RowCancelingEdit"
+                OnRowCancelingEdit="GridViewProducts_RowCancelingEdit" OnSelectedIndexChanged="GridViewProducts_SelectedIndexChanged1"
                 >
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>

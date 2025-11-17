@@ -81,7 +81,7 @@
             padding: 12px;
             border: 1px solid #ddd;
             text-align: center;
-            vertical-align: middle;
+        vertical-align: middle;
         }
         .gridview-style th {
             background-color: #507CD1;

@@ -71,6 +71,7 @@
     <Content Include="Bai_viet.aspx" />
     <Content Include="Defult.aspx" />
     <Content Include="Gio_Hang.aspx" />
+    <Content Include="Homepage.aspx" />
     <Content Include="image\camsa.jpg" />
     <Content Include="image\chanhmatong.jpg" />
     <Content Include="image\dautay.jpg" />
@@ -88,6 +89,7 @@
     <Content Include="QL_DONHANG.aspx" />
     <Content Include="RegisterAccount.aspx" />
     <Content Include="San_pham.aspx" />
+    <Content Include="TB_BAI_VIET.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +113,13 @@
     </Compile>
     <Compile Include="Gio_Hang.aspx.designer.cs">
       <DependentUpon>Gio_Hang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Homepage.aspx.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Homepage.aspx.designer.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -161,6 +170,13 @@
     </Compile>
     <Compile Include="San_pham.aspx.designer.cs">
       <DependentUpon>San_pham.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TB_BAI_VIET.aspx.cs">
+      <DependentUpon>TB_BAI_VIET.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TB_BAI_VIET.aspx.designer.cs">
+      <DependentUpon>TB_BAI_VIET.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
