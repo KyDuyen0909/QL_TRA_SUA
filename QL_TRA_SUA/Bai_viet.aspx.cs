@@ -325,11 +325,12 @@ namespace QL_TRA_SUA
                 TextBox txtEditHinhAnh = (TextBox)GridViewBaiViet.Rows[e.RowIndex].FindControl("txtEditHinhAnh");
                 TextBox txtEditTieuDe = (TextBox)GridViewBaiViet.Rows[e.RowIndex].FindControl("txtEditTieuDe");
                 TextBox txtEditTomTat = (TextBox)GridViewBaiViet.Rows[e.RowIndex].FindControl("txtEditTomTat");
+                TextBox txtEditNoiDung = (TextBox)GridViewBaiViet.Rows[e.RowIndex].FindControl("txtEditNoiDung");
                 TextBox txtEditIDMN = (TextBox)GridViewBaiViet.Rows[e.RowIndex].FindControl("txtEditIDMN");
                 TextBox txtEditOrderKey = (TextBox)GridViewBaiViet.Rows[e.RowIndex].FindControl("txtEditOrderKey");
 
                 // 3. Kiểm tra các điều khiển có tồn tại không
-                if (txtEditHinhAnh == null || txtEditTieuDe == null || txtEditTomTat == null || txtEditIDMN == null || txtEditOrderKey == null)
+                if (txtEditHinhAnh == null || txtEditTieuDe == null || txtEditTomTat == null || txtEditNoiDung == null || txtEditIDMN == null || txtEditOrderKey == null)
                 {
                     lblMessage.Text = "❌ Lỗi: Không tìm thấy các điều khiển (TextBox) trong chế độ sửa.";
                     return;
@@ -354,6 +355,7 @@ namespace QL_TRA_SUA
                 {
                     baiVietToUpdate.Tieu_de = txtEditTieuDe.Text.Trim();
                     baiVietToUpdate.Tom_tac = txtEditTomTat.Text.Trim();
+                    baiVietToUpdate.Tom_tac = txtEditNoiDung.Text.Trim();
                     baiVietToUpdate.ID_MN = newIdMn;
                     baiVietToUpdate.OrderKey = newOrderKey;
                     baiVietToUpdate.Hinh_anh_page = txtEditHinhAnh.Text.Trim(); // Cập nhật tên file (nếu sửa)

@@ -43,7 +43,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CuteEditor">
+      <HintPath>..\..\..\cuteeditor.6.7.2\lib\CuteEditor.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RichTextEditor, Version=8.2.0.0, Culture=neutral, PublicKeyToken=3858aa6802b1223a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\richtexteditor\net_cs\bin\RichTextEditor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -68,8 +75,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddBai_Viet.aspx" />
     <Content Include="Bai_viet.aspx" />
     <Content Include="Defult.aspx" />
+    <Content Include="EditBai_Viet.aspx" />
     <Content Include="Gio_Hang.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="image\camsa.jpg" />
@@ -85,6 +94,7 @@
     <Content Include="layout\Style.css" />
     <Content Include="Login.aspx" />
     <Content Include="LoginList.aspx" />
+    <Content Include="Menu.aspx" />
     <Content Include="PageList.aspx" />
     <Content Include="QL_DONHANG.aspx" />
     <Content Include="RegisterAccount.aspx" />
@@ -93,6 +103,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddBai_Viet.aspx.cs">
+      <DependentUpon>AddBai_Viet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddBai_Viet.aspx.designer.cs">
+      <DependentUpon>AddBai_Viet.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Bai_viet.aspx.cs">
       <DependentUpon>Bai_viet.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -106,6 +123,13 @@
     </Compile>
     <Compile Include="Defult.aspx.designer.cs">
       <DependentUpon>Defult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditBai_Viet.aspx.cs">
+      <DependentUpon>EditBai_Viet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditBai_Viet.aspx.designer.cs">
+      <DependentUpon>EditBai_Viet.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gio_Hang.aspx.cs">
       <DependentUpon>Gio_Hang.aspx</DependentUpon>
@@ -141,6 +165,13 @@
     </Compile>
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.aspx.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu.aspx.designer.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
     </Compile>
     <Compile Include="PageList.aspx.cs">
       <DependentUpon>PageList.aspx</DependentUpon>

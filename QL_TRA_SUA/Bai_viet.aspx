@@ -128,9 +128,12 @@
                 <label>Tóm tắt:</label>
                 <asp:TextBox ID="txtAddTomTat" runat="server" TextMode="MultiLine" Rows="3" />
 
-                <label>Nội dung đầy đủ:</label>
-                <asp:TextBox ID="txtAddNoiDung" runat="server" TextMode="MultiLine" Rows="6" />
+                <label style="align-self: start;">Nội dung chi tiết:</label>
+                <div class="full-content">
+                    <asp:TextBox ID="txtAddNoiDung" runat="server" TextMode="MultiLine" Rows="15" />
+                </div>
 
+                
                 <label>Hình ảnh đại diện:</label>
                 <asp:FileUpload ID="fileUploadHinhAnh" runat="server" />
 
@@ -198,6 +201,18 @@
 <ItemStyle CssClass="col-tomtat"></ItemStyle>
                     </asp:TemplateField>
 
+                    <asp:TemplateField HeaderText="Nội Dung" ItemStyle-Width="300px">
+    <ItemTemplate>
+        <div style="max-height: 100px; overflow: auto;">
+            <asp:Literal ID="litNoiDung" runat="server" Text='<%# Eval("Noi_dung") %>'></asp:Literal>
+        </div>
+    </ItemTemplate>
+    <EditItemTemplate>
+        <asp:TextBox ID="txtEditNoiDung" runat="server" Text='<%# Bind("Noi_dung") %>' TextMode="MultiLine" Rows="4" Width="95%"></asp:TextBox>
+    </EditItemTemplate>
+</asp:TemplateField>
+
+
                     <asp:TemplateField HeaderText="ID Menu" ItemStyle-Width="80px">
                          <ItemTemplate>
                             <asp:Label runat="server" Text='<%# Eval("ID_MN") %>'></asp:Label>
@@ -219,6 +234,9 @@
 
 <ItemStyle Width="80px"></ItemStyle>
                     </asp:TemplateField>
+
+                    <asp:HyperLinkField DataNavigateUrlFields="ID_BV" DataNavigateUrlFormatString="AddBai_Viet.aspx?idmn={0}" Text="Add" />
+                    <asp:HyperLinkField Text="Edit" DataNavigateUrlFields="ID_BV" DataNavigateUrlFormatString="EditBai_Viet.aspx?idmn={0}" />
 
                     <asp:TemplateField HeaderText="Chọn Xóa" ItemStyle-Width="70px">
                         <HeaderTemplate>
