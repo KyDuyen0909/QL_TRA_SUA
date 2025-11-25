@@ -77,6 +77,7 @@
   <ItemGroup>
     <Content Include="AddBai_Viet.aspx" />
     <Content Include="Bai_viet.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="Defult.aspx" />
     <Content Include="EditBai_Viet.aspx" />
     <Content Include="Gio_Hang.aspx" />
@@ -101,6 +102,7 @@
     <Content Include="San_pham.aspx" />
     <Content Include="TB_BAI_VIET.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddBai_Viet.aspx.cs">
@@ -116,6 +118,13 @@
     </Compile>
     <Compile Include="Bai_viet.aspx.designer.cs">
       <DependentUpon>Bai_viet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Defult.aspx.cs">
       <DependentUpon>Defult.aspx</DependentUpon>
@@ -208,6 +217,13 @@
     </Compile>
     <Compile Include="TB_BAI_VIET.aspx.designer.cs">
       <DependentUpon>TB_BAI_VIET.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
